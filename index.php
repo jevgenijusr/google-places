@@ -1,28 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Jevgenijus</title>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <style>
-        a {
-            color: #ff0;
-        }
-        .cover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            width: 100%;
+        html, body, #container, #right {
             height: 100%;
+            margin: 0;
+            padding: 0;
         }
-        .cover .hi {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Roboto Slab', serif;
-            font-size: 24px;
-            line-height: 26px;
-            text-align: center;
+        #map {
+            height: 100%;
         }
     </style>
     <script>
@@ -103,21 +92,29 @@
 
             });
 
+            $( document ).ready(function() {
+                $('form').submit();
+            });
+
         });
     </script>
 </head>
 <body>
-    <div id="history"></div>
-    <div class="cover">
-        <div class="hi">
-            <div style="height:400px; width: 600px;" id="map"></div>
-            <form method="post">
-                <input name="address" type="text"/>
-                <input type="submit">
-            </form>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALikotQ4kOr_KpOM2wmVYiYO4O1tVD0SA&libraries=places&callback=initMap" async defer></script>
-        </div>
+<div id="container" style="width:100%;">
+    <div id="left" style="float:left; width:50%; text-align: center; margin-top: 100px;">
+        <form method="post">
+            <input name="address" value="Pyongyang" type="text"/>
+            <input type="submit">
+        </form>
+        <br/><br/><br/><br/>
+        Search history: <br/><br/>
+        <div id="history"></div>
     </div>
-</body>
+    <div id="right" style="float:right; width:50%;"> <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALikotQ4kOr_KpOM2wmVYiYO4O1tVD0SA&libraries=places&callback=initMap" async defer></script> </div>
+</div>
 
+
+
+</body>
 </html>
