@@ -34,6 +34,7 @@
         var infowindow;
         var lat = -33.867;
         var lng = 151.195;
+        var history;
 
         function initMap() {
             var pyrmont = {lat: lat, lng: lng};
@@ -91,8 +92,10 @@
 
                         var obj = jQuery.parseJSON( data );
 
-                        lat = obj.lat;
-                        lng = obj.lng;
+                        lat = obj.location.lat;
+                        lng = obj.location.lng;
+
+                        $('#history').html(obj.history);
 
                         initMap();
                     }
@@ -104,6 +107,7 @@
     </script>
 </head>
 <body>
+    <div id="history"></div>
     <div class="cover">
         <div class="hi">
             <div style="height:400px; width: 600px;" id="map"></div>

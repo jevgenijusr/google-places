@@ -25,5 +25,9 @@ if(isset($_GET['input']) && !empty($_GET['input']))
         file_put_contents('history/history', serialize($history));
     }
 
-    echo json_encode($location);
+    $data = array();
+    $data['location'] = $location;
+    $data['history'] = implode("<br/>", array_reverse($history));
+
+    echo json_encode($data);
 }
