@@ -27,7 +27,7 @@ if(isset($_GET['input']) && !empty($_GET['input']))
 
     $data = array();
     $data['location'] = $location;
-    $data['history'] = implode("<br/>", array_reverse($history));
+    $data['history'] = implode("<br/>", array_slice(array_reverse($history), 0, 10));
 
     echo json_encode($data);
 }

@@ -107,7 +107,7 @@
             <input type="submit">
         </form>
         <br/><br/><br/><br/>
-        Search history: <br/><br/>
+        Search history (last 10 searches): <br/><br/>
         <div id="history"></div>
     </div>
     <div id="right" style="float:right; width:50%;"> <div id="map"></div>
